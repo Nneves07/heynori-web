@@ -9,6 +9,7 @@ import Integrations from '@/components/organisms/Integrations'
 import CTA from '@/components/organisms/CTA'
 import Contact from '@/components/organisms/Contact'
 import Footer from '@/components/organisms/Footer'
+import LanguageEnforcer from '@/components/atoms/LanguageEnforcer'
 import { trackPageView } from '@/utils/analytics'
 
 const App: React.FC = () => {
@@ -39,6 +40,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <LanguageEnforcer />
       <Navigation
         isOpen={isMenuOpen}
         onToggle={() => setIsMenuOpen(!isMenuOpen)}

@@ -1,9 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xml:lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/assets/images/heynori-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Language and Locale -->
+    <meta http-equiv="content-language" content="en" />
+    <meta name="language" content="en" />
+    <meta name="locale" content="en_US" />
     
     <!-- SEO Meta Tags -->
     <title>heynori! - AI that truly understands how you work</title>
@@ -12,6 +17,8 @@
     <meta name="robots" content="index, follow" />
     <meta name="author" content="heynori!" />
     <link rel="canonical" href="https://heynori.ai/" />
+    <link rel="alternate" hreflang="en" href="https://heynori.ai/" />
+    <link rel="alternate" hreflang="x-default" href="https://heynori.ai/" />
     
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
@@ -73,6 +80,26 @@
   </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Force English language for social media previews -->
+    <script>
+      // Force English language
+      if (typeof window !== 'undefined') {
+        // Set language in localStorage
+        localStorage.setItem('i18nextLng', 'en');
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = 'en';
+        document.documentElement.setAttribute('xml:lang', 'en');
+        
+        // Force meta tags to English
+        const metaLanguage = document.querySelector('meta[http-equiv="content-language"]');
+        if (metaLanguage) {
+          metaLanguage.setAttribute('content', 'en');
+        }
+      }
+    </script>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
