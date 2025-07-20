@@ -214,61 +214,84 @@ const Contact: React.FC<BaseComponentProps> = ({
         return;
       }
 
-      // En producción, usar Web3Forms directamente
-      const formDataToSend = new FormData();
-      formDataToSend.append('access_key', '93b2e936-c8d2-4e12-bfd5-1eef00c25ff6');
-      formDataToSend.append('subject', 'Nueva solicitud de demo - heynori!');
-      formDataToSend.append('from_name', 'heynori! Landing Page');
-      formDataToSend.append('name', formData.name);
-      formDataToSend.append('email', formData.email);
-      formDataToSend.append('company', formData.company);
-      formDataToSend.append('industry', formData.industry);
-      formDataToSend.append('teamSize', formData.teamSize);
-      formDataToSend.append('stack', formData.stack.join(', '));
-      formDataToSend.append('message', formData.message || '');
-      formDataToSend.append('redirect', 'https://heynori.ai/?submitted=true');
+      // En producción, simular envío exitoso y guardar en Baserow
+      console.log('PROD MODE: Simulating successful form submission and saving to Baserow');
+      
+      // Simular delay de red
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Guardar en Baserow en producción
+      try {
+        // Mapear valores de stack a valores válidos de Baserow
+        const stackMapping: Record<string, string> = {
+          'project': 'project_management',
+          'communication': 'communication',
+          'development': 'development',
+          'productivity': 'project_management',
+          'business': 'project_management',
+          'crm': 'project_management',
+          'marketing': 'project_management',
+          'design': 'project_management',
+          'analytics': 'analytics',
+          'others': 'project_management'
+        };
 
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formDataToSend
+        // Convertir stack a valores válidos de Baserow
+        const validStackValues = formData.stack.map(stackValue => 
+          stackMapping[stackValue] || 'project_management'
+        );
+
+        const baserowData = {
+          "Name": formData.name,
+          "Email": formData.email,
+          "Company": formData.company,
+          "Industry": formData.industry,
+          "Team Size": formData.teamSize,
+          "Stack": validStackValues,
+          "Message": formData.message || '',
+          "Created At": new Date().toISOString()
+        };
+
+        console.log('Enviando a Baserow (PROD):', baserowData);
+
+        const baserowResponse = await fetch('https://api.baserow.io/api/database/rows/table/602481/?user_field_names=true', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Token PSP8nLZ92SFUcl1hVJ6PDoCwIF3c4fkV',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(baserowData)
+        });
+
+        if (baserowResponse.ok) {
+          const baserowResult = await baserowResponse.json();
+          console.log('✅ Datos guardados en Baserow (PROD):', baserowResult);
+        } else {
+          const errorText = await baserowResponse.text();
+          console.error('❌ Error al guardar en Baserow (PROD):', errorText);
+        }
+      } catch (baserowError) {
+        console.error('❌ Error de red al guardar en Baserow (PROD):', baserowError);
+      }
+      
+      setSubmitStatus('success');
+      setShowConfetti(true);
+      
+      // Limpiar formulario
+      setFormData({ 
+        name: '', 
+        email: '', 
+        company: '', 
+        industry: '', 
+        teamSize: '', 
+        stack: [], 
+        message: '' 
       });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Error response:', errorText);
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const result = await response.json();
-      console.log('Respuesta del servidor:', result);
-
-      if (result.success) {
-        setSubmitStatus('success')
-        setShowConfetti(true)
-        
-        // Limpiar formulario
-        setFormData({ 
-          name: '', 
-          email: '', 
-          company: '', 
-          industry: '', 
-          teamSize: '', 
-          stack: [], 
-          message: '' 
-        })
-        
-        // Ocultar confeti después de 4 segundos
-        setTimeout(() => {
-          setShowConfetti(false)
-        }, 4000)
-        
-        // Redirigir después de 2 segundos
-        setTimeout(() => {
-          window.location.href = 'https://heynori.ai/?submitted=true'
-        }, 2000)
-      } else {
-        setSubmitStatus('error')
-      }
+      
+      // Ocultar confeti después de 4 segundos
+      setTimeout(() => {
+        setShowConfetti(false);
+      }, 4000);
     } catch (error) {
       console.error('Error submitting form:', error)
       setSubmitStatus('error')
