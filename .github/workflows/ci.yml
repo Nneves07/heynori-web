@@ -1,21 +1,10 @@
-name: CI/CD Pipeline
+name: CI Pipeline
 
 on:
   push:
     branches: [ main, develop ]
   pull_request:
     branches: [ main ]
-
-# Configurar permisos para el workflow
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Configurar el job de deployment para usar el ambiente de GitHub Pages
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   test:
@@ -69,37 +58,7 @@ jobs:
     - name: Build application
       run: npm run build
     
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: build-files
-        path: dist/
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Download build artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: build-files
-        path: dist/
-    
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
-    
-    - name: Upload site
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: './dist'
-    
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4 
+    - name: Verify build output
+      run: |
+        echo "Build completed successfully"
+        ls -la dist/ 
