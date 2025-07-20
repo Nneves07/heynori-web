@@ -1,5 +1,5 @@
 import { build } from 'vite'
-import { copyFile, mkdir } from 'fs/promises'
+import { copyFile } from 'fs/promises'
 import { join } from 'path'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
@@ -14,9 +14,6 @@ async function buildApp() {
     // Build the application
     await build()
     console.log('✅ Vite build completed')
-    
-    // Ensure dist directory exists
-    const distDir = join(__dirname, 'dist')
     
     // Copy CNAME file to dist directory
     const cnameSource = join(__dirname, 'CNAME')
@@ -33,10 +30,6 @@ async function buildApp() {
     // Copy _headers file for HTTP headers
     const headersSource = join(__dirname, 'public', '_headers')
     const headersDest = join(__dirname, 'dist', '_headers')
-    
-    // Copy assets directory if it exists
-    const assetsSource = join(__dirname, 'assets')
-    const assetsDest = join(__dirname, 'dist', 'assets')
     
     try {
       await copyFile(cnameSource, cnameDest)
