@@ -1,77 +1,54 @@
-# Configuración de GitHub Pages
+# Configuración de GitHub Pages - Evitar Workflows Automáticos
 
-## Configuración del Repositorio
+## Problema
+Aparecen 3 workflows ejecutándose simultáneamente:
+1. "Deploy to GitHub Pages" (nuestro workflow)
+2. "CI Pipeline" (nuestro workflow)
+3. "pages build and deployment" (workflow automático de GitHub)
 
-Para que el deployment a GitHub Pages funcione correctamente, necesitas configurar los siguientes elementos:
+## Solución
 
-### 1. Habilitar GitHub Pages
+### 1. Configuración en GitHub Settings
 
-1. Ve a **Settings** > **Pages** en tu repositorio
-2. En **Source**, selecciona **GitHub Actions**
-3. Esto permitirá que el workflow de GitHub Actions despliegue automáticamente
+1. Ve a **Settings** → **Pages**
+2. En **"Build and deployment"**:
+   - Cambia **Source** de "GitHub Actions" a "Deploy from a branch"
+   - Selecciona una rama (ej: `gh-pages`)
+   - Guarda
+   - Vuelve a cambiar a "GitHub Actions"
+   - Selecciona tu workflow personalizado
 
-### 2. Configurar Permisos del Workflow
+### 2. Configuración de Branch Protection
 
-El workflow ya está configurado con los permisos correctos:
-- `contents: read` - Para leer el código
-- `pages: write` - Para escribir en GitHub Pages
-- `id-token: write` - Para autenticación
+1. Ve a **Settings** → **Branches**
+2. Agrega regla para `main`:
+   - ✅ "Require status checks to pass before merging"
+   - ✅ "Require branches to be up to date before merging"
+   - En "Status checks that are required":
+     - Agrega "build-and-deploy" (de tu workflow)
+     - Agrega "test" (de tu workflow CI)
 
-### 3. Configurar el Ambiente (Opcional pero Recomendado)
+### 3. Verificación
 
-1. Ve a **Settings** > **Environments**
-2. Crea un nuevo ambiente llamado `github-pages`
-3. Esto proporcionará una capa adicional de seguridad
+Después de la configuración, solo deberías ver:
+- ✅ "Deploy to GitHub Pages"
+- ✅ "CI Pipeline"
+- ❌ "pages build and deployment" (ya no aparece)
 
-### 4. Dominio Personalizado
+## Workflows Esperados
 
-El archivo `CNAME` ya está configurado con `heynori.ai`. Para que funcione:
+### Deploy to GitHub Pages
+- Se ejecuta en push a `main`
+- Maneja build y deploy
+- Usa concurrency para evitar conflictos
 
-1. Asegúrate de que el dominio `heynori.ai` apunte a tu repositorio de GitHub
-2. En **Settings** > **Pages**, verifica que el dominio personalizado esté configurado
-3. Marca la opción "Enforce HTTPS" si está disponible
+### CI Pipeline  
+- Se ejecuta en push a `main`
+- Maneja testing y verificación
+- No interfiere con el deploy
 
-## Workflow de CI/CD
-
-El workflow está configurado para:
-
-1. **Test**: Ejecutar type-check, linting y tests
-2. **Build**: Construir la aplicación y copiar el archivo CNAME
-3. **Deploy**: Desplegar a GitHub Pages usando las acciones oficiales
-
-### Archivos Importantes
-
-- `.github/workflows/ci.yml` - Configuración del workflow
-- `CNAME` - Dominio personalizado
-- `build.js` - Script de build personalizado que copia el CNAME
-
-## Solución de Problemas
-
-### Error 403 - Permission Denied
-
-Si ves este error, verifica:
-1. Que GitHub Pages esté habilitado con **GitHub Actions** como fuente
-2. Que el repositorio tenga permisos de escritura en la rama `gh-pages`
-3. Que el workflow tenga los permisos correctos configurados
-
-### Dominio No Funciona
-
-Si el dominio personalizado no funciona:
-1. Verifica que el DNS esté configurado correctamente
-2. Asegúrate de que el archivo CNAME esté en el directorio raíz del build
-3. Espera hasta 24 horas para que los cambios de DNS se propaguen
-
-## Verificación
-
-Para verificar que todo funciona:
-
-1. Haz un push a la rama `main`
-2. Ve a **Actions** para ver el progreso del workflow
-3. Una vez completado, visita `https://heynori.ai` para verificar el deployment
-
-## Notas Importantes
-
-- El deployment solo ocurre en pushes a la rama `main`
-- Los pull requests ejecutan solo tests, no deployment
-- El archivo CNAME se copia automáticamente durante el build
-- El workflow usa las acciones oficiales de GitHub para mayor confiabilidad 
+## Beneficios
+- ✅ Solo 2 workflows en lugar de 3
+- ✅ Sin conflictos de artefactos
+- ✅ Control total sobre el proceso de despliegue
+- ✅ Mejor rendimiento y tiempo de ejecución 
