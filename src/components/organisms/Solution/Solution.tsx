@@ -174,7 +174,7 @@ const Solution: React.FC<SolutionProps> = ({
 
           {/* Card Container */}
           <div className="flex items-center justify-center min-h-[600px] px-20 lg:px-32">
-            <AnimatePresence initial={false} custom={currentIndex} mode="wait">
+            <AnimatePresence initial={false} custom={currentIndex} mode="sync">
               <motion.div
                 key={currentIndex}
                 custom={currentIndex}

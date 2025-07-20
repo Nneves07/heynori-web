@@ -198,7 +198,7 @@ const Integrations: React.FC<BaseComponentProps> = ({
           initial="hidden"
           animate={hasIntersected ? "visible" : "hidden"}
         >
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="sync">
                             {filteredIntegrations.map((integration) => (
               <motion.div
                 key={integration.name}

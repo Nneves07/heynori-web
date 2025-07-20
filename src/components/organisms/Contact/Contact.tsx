@@ -131,17 +131,106 @@ const Contact: React.FC<BaseComponentProps> = ({
 
       console.log('Datos que se envían al servidor:', serverData);
 
-      // URL del endpoint (proxy en desarrollo, directo en producción)
-      const apiUrl = import.meta.env.DEV 
-        ? 'http://localhost:3001/api/contact'
-        : 'https://api.heynori.ai/api/contact'; // Cambiar por tu dominio de producción
+      // En desarrollo, simular envío exitoso pero también guardar en Baserow
+      if (import.meta.env.DEV) {
+        console.log('DEV MODE: Simulating successful form submission and saving to Baserow');
+        
+        // Simular delay de red
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Guardar en Baserow en desarrollo
+        try {
+          // Mapear valores de stack a valores válidos de Baserow
+          const stackMapping: Record<string, string> = {
+            'project': 'project_management',
+            'communication': 'communication',
+            'development': 'development',
+            'productivity': 'project_management', // Mapear a project_management ya que productivity no existe
+            'business': 'project_management', // Mapear a project_management
+            'crm': 'project_management', // Mapear a project_management
+            'marketing': 'project_management', // Mapear a project_management
+            'design': 'project_management', // Mapear a project_management
+            'analytics': 'analytics',
+            'others': 'project_management' // Mapear a project_management
+          };
 
-      const response = await fetch(apiUrl, {
+          // Convertir stack a valores válidos de Baserow
+          const validStackValues = formData.stack.map(stackValue => 
+            stackMapping[stackValue] || 'project_management'
+          );
+
+          const baserowData = {
+            "Name": formData.name,
+            "Email": formData.email,
+            "Company": formData.company,
+            "Industry": formData.industry,
+            "Team Size": formData.teamSize,
+            "Stack": validStackValues,
+            "Message": formData.message || '',
+            "Created At": new Date().toISOString()
+          };
+
+          console.log('Enviando a Baserow (DEV):', baserowData);
+
+          const baserowResponse = await fetch('https://api.baserow.io/api/database/rows/table/602481/?user_field_names=true', {
+            method: 'POST',
+            headers: {
+              'Authorization': 'Token PSP8nLZ92SFUcl1hVJ6PDoCwIF3c4fkV',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(baserowData)
+          });
+
+          if (baserowResponse.ok) {
+            const baserowResult = await baserowResponse.json();
+            console.log('✅ Datos guardados en Baserow (DEV):', baserowResult);
+          } else {
+            const errorText = await baserowResponse.text();
+            console.error('❌ Error al guardar en Baserow (DEV):', errorText);
+          }
+        } catch (baserowError) {
+          console.error('❌ Error de red al guardar en Baserow (DEV):', baserowError);
+        }
+        
+        setSubmitStatus('success');
+        setShowConfetti(true);
+        
+        // Limpiar formulario
+        setFormData({ 
+          name: '', 
+          email: '', 
+          company: '', 
+          industry: '', 
+          teamSize: '', 
+          stack: [], 
+          message: '' 
+        });
+        
+        // Ocultar confeti después de 4 segundos
+        setTimeout(() => {
+          setShowConfetti(false);
+        }, 4000);
+        
+        return;
+      }
+
+      // En producción, usar Web3Forms directamente
+      const formDataToSend = new FormData();
+      formDataToSend.append('access_key', '93b2e936-c8d2-4e12-bfd5-1eef00c25ff6');
+      formDataToSend.append('subject', 'Nueva solicitud de demo - heynori!');
+      formDataToSend.append('from_name', 'heynori! Landing Page');
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('company', formData.company);
+      formDataToSend.append('industry', formData.industry);
+      formDataToSend.append('teamSize', formData.teamSize);
+      formDataToSend.append('stack', formData.stack.join(', '));
+      formDataToSend.append('message', formData.message || '');
+      formDataToSend.append('redirect', 'https://heynori.ai/?submitted=true');
+
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(serverData)
+        body: formDataToSend
       });
 
       if (!response.ok) {
@@ -174,9 +263,9 @@ const Contact: React.FC<BaseComponentProps> = ({
         }, 4000)
         
         // Redirigir después de 2 segundos
-        // setTimeout(() => {
-        //   window.location.href = 'https://calendly.com/heynori/30min'
-        // }, 2000)
+        setTimeout(() => {
+          window.location.href = 'https://heynori.ai/?submitted=true'
+        }, 2000)
       } else {
         setSubmitStatus('error')
       }
@@ -369,7 +458,7 @@ const Contact: React.FC<BaseComponentProps> = ({
                   </div>
                   
                   {/* Status Messages */}
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence mode="sync">
                     {submitStatus === 'success' && (
                       <motion.div
                         initial={{ opacity: 0, y: -20 }}
