@@ -36,6 +36,29 @@ jobs:
     - name: Build application
       run: npm run build
     
+    - name: Copy additional files
+      run: |
+        cp CNAME dist/
+        cp public/favicon.svg dist/
+        cp public/_headers dist/
+        cp public/_redirects dist/
+        cp public/.htaccess dist/
+        cp public/_config.yml dist/
+        echo "✅ Additional files copied successfully"
+    
+    - name: Verify build output
+      run: |
+        echo "📁 Build directory contents:"
+        ls -la dist/
+        echo "📄 Checking for critical files:"
+        test -f dist/index.html && echo "✅ index.html exists"
+        test -f dist/CNAME && echo "✅ CNAME exists"
+        test -f dist/favicon.svg && echo "✅ favicon.svg exists"
+        test -f dist/_headers && echo "✅ _headers exists"
+        test -f dist/_redirects && echo "✅ _redirects exists"
+        test -f dist/.htaccess && echo "✅ .htaccess exists"
+        test -f dist/_config.yml && echo "✅ _config.yml exists"
+    
     - name: Setup Pages
       uses: actions/configure-pages@v4
     

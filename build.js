@@ -28,16 +28,22 @@ async function buildApp() {
     const redirectsSource = join(__dirname, 'public', '_redirects')
     const redirectsDest = join(__dirname, 'dist', '_redirects')
     
+    // Copy .htaccess file to dist directory
+    const htaccessSource = join(__dirname, 'public', '.htaccess')
+    const htaccessDest = join(__dirname, 'dist', '.htaccess')
+    
     await copyFile(cnameSource, cnameDest)
     await copyFile(faviconSource, faviconDest)
     await copyFile(headersSource, headersDest)
     await copyFile(redirectsSource, redirectsDest)
+    await copyFile(htaccessSource, htaccessDest)
     
     console.log('✅ Build completed successfully')
     console.log('✅ CNAME file copied to dist directory')
     console.log('✅ Favicon copied to dist directory')
     console.log('✅ Headers file copied to dist directory')
     console.log('✅ Redirects file copied to dist directory')
+    console.log('✅ .htaccess file copied to dist directory')
   } catch (error) {
     console.error('❌ Build failed:', error)
     process.exit(1)
