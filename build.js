@@ -15,21 +15,13 @@ async function buildApp() {
     await build()
     console.log('✅ Vite build completed')
     
-    // Copy CNAME file to dist directory
+    // Copy CNAME file to dist directory (not in public/)
     const cnameSource = join(__dirname, 'CNAME')
     const cnameDest = join(__dirname, 'dist', 'CNAME')
     
-    // Copy favicon to dist directory
-    const faviconSource = join(__dirname, 'public', 'favicon.svg')
-    const faviconDest = join(__dirname, 'dist', 'favicon.svg')
-    
-    // Copy _redirects file for SPA routing
-    const redirectsSource = join(__dirname, 'public', '_redirects')
-    const redirectsDest = join(__dirname, 'dist', '_redirects')
-    
-    // Copy _headers file for HTTP headers
-    const headersSource = join(__dirname, 'public', '_headers')
-    const headersDest = join(__dirname, 'dist', '_headers')
+    // Copy vercel.json for headers and routing
+    const vercelSource = join(__dirname, 'vercel.json')
+    const vercelDest = join(__dirname, 'dist', 'vercel.json')
     
     try {
       await copyFile(cnameSource, cnameDest)
@@ -39,35 +31,15 @@ async function buildApp() {
     }
     
     try {
-      await copyFile(faviconSource, faviconDest)
-      console.log('✅ Favicon copied to dist directory')
+      await copyFile(vercelSource, vercelDest)
+      console.log('✅ vercel.json copied to dist directory')
     } catch (error) {
-      console.warn('⚠️ Favicon not found in public/, trying assets/...')
-      try {
-        const altFaviconSource = join(__dirname, 'assets', 'images', 'favicon.svg')
-        await copyFile(altFaviconSource, faviconDest)
-        console.log('✅ Favicon copied from assets/images/')
-      } catch (altError) {
-        console.warn('⚠️ Favicon not found in assets/images/ either')
-      }
-    }
-    
-    try {
-      await copyFile(redirectsSource, redirectsDest)
-      console.log('✅ _redirects file copied to dist directory')
-    } catch (error) {
-      console.warn('⚠️ _redirects file not found, skipping...')
-    }
-    
-    try {
-      await copyFile(headersSource, headersDest)
-      console.log('✅ _headers file copied to dist directory')
-    } catch (error) {
-      console.warn('⚠️ _headers file not found, skipping...')
+      console.warn('⚠️ vercel.json not found, skipping...')
     }
     
     console.log('✅ Build completed successfully')
     console.log('📁 Build output directory: dist/')
+    console.log('📁 Public files copied automatically by Vite')
   } catch (error) {
     console.error('❌ Build failed:', error)
     process.exit(1)
