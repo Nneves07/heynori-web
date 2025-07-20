@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "problemas": "Problems",
+    "como-funciona": "How it Works",
+    "beneficios": "Benefits",
+    "integraciones": "Integrations",
+    "contacto": "Contact",
+    "solicitar-acceso": "Request Access"
+  },
+  "hero": {
+    "title": "AI that truly understands",
+    "subtitle": "how your team works",
+    "description": "Nori automatically connects all your work tools to eliminate repetitive tasks, accelerate projects and intelligently optimize productivity.",
+    "btn-solicitar": "Request Personalized Demo",
+    "btn-demo": "Watch Live Demo",
+    "note": "Limited early access • No credit card required",
+    "tagline": "Your life. Your work. Your rhythm. Enhanced."
+  },
+  "problems": {
+    "title": "Does this sound familiar?",
+    "time-lost": {
+      "title": "Lost time",
+      "desc": "Your team loses hours each week switching between applications and copying information manually"
+    },
+    "visibility": {
+      "title": "Poor visibility",
+      "desc": "Projects get delayed because no one has complete visibility of real progress"
+    },
+    "talent": {
+      "title": "Frustrated talent",
+      "desc": "Your best professionals get exhausted with repetitive tasks that a machine could do"
+    },
+    "decisions": {
+      "title": "Blind decisions",
+      "desc": "You don't have reliable data to make strategic decisions about productivity"
+    }
+  },
+  "solution": {
+    "title": "Nori is different",
+    "subtitle": "The first AI that really understands how your team works",
+    "description": "Our AI learns your team's patterns and automatically connects all your tools, eliminating manual work and providing complete visibility.",
+    "connectivity": {
+      "title": "Unlimited Connectivity",
+      "desc": "Integrate all your tools in minutes, not months. Native APIs and custom connectors for real-time bidirectional synchronization.",
+      "setup": "Instant setup",
+      "friction": "Zero friction for your team",
+      "tools": "Keep the tools you love"
+    },
+    "ai": {
+      "title": "AI that Learns Your Context",
+      "desc": "Automatically maps your unique processes, predicts bottlenecks before they happen and suggests optimizations based on your team's patterns.",
+      "learning": "Continuous learning",
+      "predictions": "Intelligent predictions",
+      "optimization": "Automatic optimization"
+    },
+    "automation": {
+      "title": "Intelligent Automation",
+      "desc": "Eliminates most manual tasks between apps, automatically updates project statuses and generates executive reports instantly.",
+      "workflows": "Automatic workflows",
+      "reports": "Instant reports",
+      "alerts": "Proactive alerts"
+    },
+    "insights": {
+      "title": "Insights for Leaders",
+      "desc": "Executive dashboards with real productivity metrics, bottleneck identification and benchmarking with high-performance teams.",
+      "metrics": "Actionable metrics",
+      "roi": "Measurable ROI",
+      "continuous": "Continuous optimization"
+    }
+  },
+  "benefits": {
+    "title": "For teams that value their time",
+    "create": {
+      "title": "More time to create",
+      "desc": "Your team focuses on strategic work, not copying and pasting between tools"
+    },
+    "flow": {
+      "title": "Flowing projects",
+      "desc": "Automatic synchronization keeps everyone aligned without unnecessary meetings"
+    },
+    "decisions": {
+      "title": "Smarter decisions",
+      "desc": "Real-time data to optimize processes and anticipate problems"
+    },
+    "scalability": {
+      "title": "Stress-free scalability",
+      "desc": "Grow your team without multiplying the complexity of your processes"
+    },
+    "workflow": {
+      "step1": "Detect patterns",
+      "step2": "Automate flows",
+      "step3": "Continuously optimize"
+    }
+  },
+  "integrations": {
+    "title": "Integrations",
+    "subtitle": "Connect with 100+ tools you already use. No complex setup required."
+  },
+  "contact": {
+    "title": "Ready to transform your productivity?",
+    "subtitle": "Tell us about your team and we'll show you how Nori can revolutionize your workflow in less than 30 days.",
+    "feature": {
+      "setup": {
+        "title": "Setup in 24 hours",
+        "desc": "Express implementation without interrupting your work"
+      },
+      "security": {
+        "title": "Enterprise security",
+        "desc": "SOC2, GDPR compliance and end-to-end encryption"
+      },
+      "support247": {
+        "title": "24/7 Support",
+        "desc": "Dedicated team to resolve any questions"
+      }
+    },
+    "form": {
+      "title": "Request Personalized Demo",
+      "name": "Full name",
+      "email": "Corporate email",
+      "company": "Company",
+      "industry": "Industry",
+      "teamSize": "Team size",
+      "stack": "Tools to integrate",
+      "message": "Tell us your main challenge",
+      "submit": "Request Personalized Demo",
+      "selectPlaceholder": "Select...",
+      "stackOptions": {
+        "project": "Project Management",
+        "communication": "Communication",
+        "development": "Development",
+        "productivity": "Productivity",
+        "business": "Business",
+        "crm": "CRM & Sales",
+        "marketing": "Marketing",
+        "design": "Design & Product",
+        "analytics": "Analytics",
+        "others": "Others"
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to transform your workflow?",
+    "subtitle": "Join thousands of teams already using heynori!",
+    "btn-access": "Request Early Access",
+    "btn-call": "Schedule Call",
+    "feature": {
+      "setup": "Custom setup included",
+      "support": "Dedicated support",
+      "roadmap": "Roadmap influence"
+    }
+  },
+  "footer": {
+    "description": "AI that truly understands how you work",
+    "sections": {
+      "product": "Product",
+      "company": "Company",
+      "support": "Support"
+    },
+    "links": {
+      "features": "Features",
+      "integrations": "Integrations",
+      "about": "About",
+      "contact": "Contact",
+      "helpCenter": "Help Center"
+    },
+    "social": {
+      "x": "X (Twitter)",
+      "linkedin": "LinkedIn"
+    },
+    "copyright": "© 2024 heynori!. All rights reserved.",
+    "madeWith": "Made with",
+    "forTeams": "for productive teams"
+  }
+} 

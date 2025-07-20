@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "problemas": "Problemas",
+    "como-funciona": "Cómo Funciona",
+    "beneficios": "Beneficios",
+    "integraciones": "Integraciones",
+    "contacto": "Contacto",
+    "solicitar-acceso": "Solicitar Acceso"
+  },
+  "hero": {
+    "title": "IA que realmente entiende",
+    "subtitle": "cómo trabaja tu equipo",
+    "description": "Nori conecta automáticamente todas tus herramientas de trabajo para eliminar tareas repetitivas, acelerar proyectos y optimizar la productividad de manera inteligente.",
+    "btn-solicitar": "Solicitar Demo Personalizada",
+    "btn-demo": "Ver Demo en Vivo",
+    "note": "Acceso anticipado limitado • Sin tarjeta de crédito",
+    "tagline": "Tu vida. Tu trabajo. Tu ritmo. Mejorado."
+  },
+  "problems": {
+    "title": "¿Te suena familiar?",
+    "time-lost": {
+      "title": "Tiempo perdido",
+      "desc": "Tu equipo pierde horas cada semana cambiando entre aplicaciones y copiando información manualmente"
+    },
+    "visibility": {
+      "title": "Falta de visibilidad",
+      "desc": "Los proyectos se retrasan porque nadie tiene una vista completa del progreso real"
+    },
+    "talent": {
+      "title": "Talento frustrado",
+      "desc": "Tus mejores profesionales se agotan con tareas repetitivas que una máquina podría hacer"
+    },
+    "decisions": {
+      "title": "Decisiones a ciegas",
+      "desc": "No tienes datos confiables para tomar decisiones estratégicas sobre productividad"
+    }
+  },
+  "solution": {
+    "title": "Nori es diferente",
+    "subtitle": "La primera IA que realmente entiende cómo trabaja tu equipo",
+    "description": "Nuestra IA aprende los patrones de tu equipo y conecta automáticamente todas tus herramientas, eliminando el trabajo manual y proporcionando visibilidad completa.",
+    "connectivity": {
+      "title": "Conectividad Sin Límites",
+      "desc": "Integra todas tus herramientas en minutos, no meses. APIs nativas y conectores personalizados para sincronización bidireccional en tiempo real.",
+      "setup": "Setup instantáneo",
+      "friction": "Zero fricción para tu equipo",
+      "tools": "Mantén las herramientas que amas"
+    },
+    "ai": {
+      "title": "IA que Aprende Tu Contexto",
+      "desc": "Mapea automáticamente tus procesos únicos, predice bloqueos antes de que ocurran y sugiere optimizaciones basadas en los patrones de tu equipo.",
+      "learning": "Aprendizaje continuo",
+      "predictions": "Predicciones inteligentes",
+      "optimization": "Optimización automática"
+    },
+    "automation": {
+      "title": "Automatización Inteligente",
+      "desc": "Elimina la mayoría de tareas manuales entre apps, actualiza estados de proyectos automáticamente y genera reportes ejecutivos al instante.",
+      "workflows": "Workflows automáticos",
+      "reports": "Reportes instantáneos",
+      "alerts": "Alertas proactivas"
+    },
+    "insights": {
+      "title": "Insights para Líderes",
+      "desc": "Dashboards ejecutivos con métricas de productividad real, identificación de cuellos de botella y benchmarking con equipos de alto rendimiento.",
+      "metrics": "Métricas accionables",
+      "roi": "ROI medible",
+      "continuous": "Optimización continua"
+    }
+  },
+  "benefits": {
+    "title": "Para equipos que valoran su tiempo",
+    "create": {
+      "title": "Más tiempo para crear",
+      "desc": "Tu equipo se enfoca en trabajo estratégico, no en copiar y pegar entre herramientas"
+    },
+    "flow": {
+      "title": "Proyectos que fluyen",
+      "desc": "Sincronización automática mantiene a todos alineados sin reuniones innecesarias"
+    },
+    "decisions": {
+      "title": "Decisiones más inteligentes",
+      "desc": "Datos en tiempo real para optimizar procesos y anticipar problemas"
+    },
+    "scalability": {
+      "title": "Escalabilidad sin estrés",
+      "desc": "Crece tu equipo sin multiplicar la complejidad de tus procesos"
+    },
+    "workflow": {
+      "step1": "Detecta patrones",
+      "step2": "Automatiza flujos",
+      "step3": "Optimiza continuamente"
+    }
+  },
+  "integrations": {
+    "title": "Integraciones",
+    "subtitle": "Conéctate con más de 100 herramientas que ya usas. Sin configuración compleja."
+  },
+  "contact": {
+    "title": "¿Listo para transformar tu productividad?",
+    "subtitle": "Cuéntanos sobre tu equipo y te mostraremos cómo Nori puede revolucionar tu flujo de trabajo en menos de 30 días.",
+    "feature": {
+      "setup": {
+        "title": "Configuración en 24 horas",
+        "desc": "Implementación express sin interrumpir tu trabajo"
+      },
+      "security": {
+        "title": "Seguridad empresarial",
+        "desc": "Cumplimiento SOC2, GDPR y cifrado de extremo a extremo"
+      },
+      "support247": {
+        "title": "Soporte 24/7",
+        "desc": "Equipo dedicado para resolver cualquier consulta"
+      }
+    },
+    "form": {
+      "title": "Solicitar Demo Personalizada",
+      "name": "Nombre completo",
+      "email": "Email corporativo",
+      "company": "Empresa",
+      "industry": "Industria",
+      "teamSize": "Tamaño del equipo",
+      "stack": "Herramientas a integrar",
+      "message": "Cuéntanos tu principal desafío",
+      "submit": "Solicitar Demo Personalizada",
+      "selectPlaceholder": "Seleccionar...",
+      "stackOptions": {
+        "project": "Gestión de Proyectos",
+        "communication": "Comunicación",
+        "development": "Desarrollo",
+        "productivity": "Productividad",
+        "business": "Negocios",
+        "crm": "CRM y Ventas",
+        "marketing": "Marketing",
+        "design": "Diseño y Producto",
+        "analytics": "Analytics",
+        "others": "Otros"
+      }
+    }
+  },
+  "cta": {
+    "title": "Únete al futuro del trabajo",
+    "subtitle": "Acceso anticipado limitado para equipos que quieren ser pioneros en productividad inteligente",
+    "btn-access": "Solicitar Acceso Anticipado",
+    "btn-call": "Agendar Llamada",
+    "feature": {
+      "setup": "Setup personalizado incluido",
+      "support": "Soporte dedicado",
+      "roadmap": "Influencia en roadmap"
+    }
+  },
+  "footer": {
+    "description": "IA que realmente entiende cómo trabajas",
+    "sections": {
+      "product": "Producto",
+      "company": "Empresa",
+      "support": "Soporte"
+    },
+    "links": {
+      "features": "Características",
+      "integrations": "Integraciones",
+      "about": "Acerca de",
+      "contact": "Contacto",
+      "helpCenter": "Centro de Ayuda"
+    },
+    "social": {
+      "x": "X (Twitter)",
+      "linkedin": "LinkedIn"
+    },
+    "copyright": "© 2024 heynori!. Todos los derechos reservados.",
+    "madeWith": "Hecho con",
+    "forTeams": "para equipos productivos"
+  }
+} 
