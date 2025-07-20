@@ -41,23 +41,11 @@ export default defineConfig({
   server: {
     port: 3000,
     open: true,
-    host: true,
-    headers: {
-      'X-Frame-Options': 'DENY',
-      'X-Content-Type-Options': 'nosniff',
-      'X-XSS-Protection': '1; mode=block',
-      'Referrer-Policy': 'strict-origin-when-cross-origin'
-    }
+    host: true
   },
   preview: {
     port: 4173,
-    open: true,
-    headers: {
-      'X-Frame-Options': 'DENY',
-      'X-Content-Type-Options': 'nosniff',
-      'X-XSS-Protection': '1; mode=block',
-      'Referrer-Policy': 'strict-origin-when-cross-origin'
-    }
+    open: true
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-i18next', 'i18next']
