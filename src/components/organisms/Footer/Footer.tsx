@@ -43,24 +43,24 @@ const Footer: React.FC<BaseComponentProps> = ({
 
   const footerSections = [
     {
-      title: 'Product',
+      title: t('footer.sections.product'),
       links: [
-        { name: 'Features', href: '#benefits' },
-        { name: 'Integrations', href: '#integrations' }
+        { name: t('footer.links.features'), href: '#benefits' },
+        { name: t('footer.links.integrations'), href: '#integrations' }
       ]
     },
     {
-      title: 'Company',
+      title: t('footer.sections.company'),
       links: [
-        { name: 'About', href: '#problems' },
-        { name: 'Contact', href: '#contact' }
+        { name: t('footer.links.about'), href: '#problems' },
+        { name: t('footer.links.contact'), href: '#contact' }
       ]
     },
     {
-      title: 'Support',
+      title: t('footer.sections.support'),
       links: [
-        { name: 'Help Center', href: '#contact' },
-        { name: 'Contact', href: '#contact' }
+        { name: t('footer.links.helpCenter'), href: '#contact' },
+        { name: t('footer.links.contact'), href: '#contact' }
       ]
     }
   ]
