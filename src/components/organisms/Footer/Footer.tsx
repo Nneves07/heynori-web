@@ -1,10 +1,26 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { Mail, Heart, ArrowUp, Twitter, Linkedin } from 'lucide-react'
+import { Mail, Heart, ArrowUp, Linkedin } from 'lucide-react'
 import { cn } from '@/utils/cn'
 import { BaseComponentProps } from '@/types'
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
+
+// SVG oficial de X (Twitter)
+function XIcon({ className, ...props }: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 1200 1227"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="X (Twitter)"
+      className={className}
+      {...props}
+    >
+      <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" />
+    </svg>
+  );
+}
 
 const Footer: React.FC<BaseComponentProps> = ({
   className,
@@ -66,7 +82,7 @@ const Footer: React.FC<BaseComponentProps> = ({
   ]
 
   const socialLinks = [
-    { icon: Twitter, href: 'https://x.com/heynoriHQ', label: 'X (Twitter)' },
+    { icon: XIcon, href: 'https://x.com/heynoriHQ', label: 'X (Twitter)' },
     { icon: Linkedin, href: 'https://www.linkedin.com/company/heynori/posts/?feedView=all', label: 'LinkedIn' }
   ]
 
@@ -193,7 +209,9 @@ const Footer: React.FC<BaseComponentProps> = ({
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.label}
                   >
-                    <social.icon className="w-5 h-5" />
+                    {social.label === 'X (Twitter)'
+                      ? <social.icon className="w-5 h-5" />
+                      : <social.icon className="w-5 h-5" />}
                   </motion.a>
                 ))}
               </div>
