@@ -135,6 +135,13 @@
         "design": "Diseño y Producto",
         "analytics": "Analytics",
         "others": "Otros"
+      },
+      "industryPlaceholder": "Ej: Tecnología, Finanzas, Salud, etc.",
+      "teamSizeOptions": {
+        "1-10": "1-10 empleados",
+        "11-50": "11-50 empleados",
+        "51-200": "51-200 empleados",
+        "201+": "201+ empleados"
       }
     }
   },

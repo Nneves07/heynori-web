@@ -556,7 +556,7 @@ const Contact: React.FC<BaseComponentProps> = ({
                             onChange={handleChange}
                             required
                             className="w-full px-4 py-4 bg-white border-2 border-gray-300 rounded-2xl focus:border-primary-500 focus:outline-none transition-all duration-300 shadow-lg"
-                            placeholder="john@company.com"
+                            placeholder="nori@company.com"
                           />
                         </div>
                       </div>
@@ -598,7 +598,7 @@ const Contact: React.FC<BaseComponentProps> = ({
                             onChange={handleChange}
                             required
                             className="w-full pl-12 pr-4 py-4 bg-white border-2 border-gray-300 rounded-2xl focus:border-primary-500 focus:outline-none transition-all duration-300 shadow-lg"
-                            placeholder="Tecnología, Finanzas, etc."
+                            placeholder={t('contact.form.industryPlaceholder')}
                           />
                         </div>
                       </div>
@@ -620,10 +620,10 @@ const Contact: React.FC<BaseComponentProps> = ({
                           className="w-full pl-12 pr-4 py-4 bg-white border-2 border-gray-300 rounded-2xl focus:border-primary-500 focus:outline-none transition-all duration-300 shadow-lg appearance-none"
                         >
                           <option value="">{t('contact.form.selectPlaceholder')}</option>
-                          <option value="1-10">1-10 empleados</option>
-                          <option value="11-50">11-50 empleados</option>
-                          <option value="51-200">51-200 empleados</option>
-                          <option value="201+">201+ empleados</option>
+                          <option value="1-10">{t('contact.form.teamSizeOptions.1-10')}</option>
+                          <option value="11-50">{t('contact.form.teamSizeOptions.11-50')}</option>
+                          <option value="51-200">{t('contact.form.teamSizeOptions.51-200')}</option>
+                          <option value="201+">{t('contact.form.teamSizeOptions.201+')}</option>
                         </select>
                       </div>
                     </div>
