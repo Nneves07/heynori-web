@@ -150,7 +150,7 @@ const Solution: React.FC<SolutionProps> = ({
           {/* Navigation Arrows - Positioned on sides */}
           <motion.button
             onClick={prevCard}
-            className="absolute left-2 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white/90 backdrop-blur-md rounded-full shadow-2xl flex items-center justify-center hover:bg-white hover:shadow-3xl transition-all duration-300 border border-gray-200 hover:border-gray-300 group"
+            className="absolute left-2 lg:left-8 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center p-0 m-0 bg-transparent border-none shadow-none rounded-none group focus:outline-none"
             whileHover={{ scale: 1.15, x: -5 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, x: -30 }}
@@ -162,7 +162,7 @@ const Solution: React.FC<SolutionProps> = ({
 
           <motion.button
             onClick={nextCard}
-            className="absolute right-2 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white/90 backdrop-blur-md rounded-full shadow-2xl flex items-center justify-center hover:bg-white hover:shadow-3xl transition-all duration-300 border border-gray-200 hover:border-gray-300 group"
+            className="absolute right-2 lg:right-8 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center p-0 m-0 bg-transparent border-none shadow-none rounded-none group focus:outline-none"
             whileHover={{ scale: 1.15, x: 5 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, x: 30 }}
@@ -173,8 +173,8 @@ const Solution: React.FC<SolutionProps> = ({
           </motion.button>
 
           {/* Card Container */}
-          <div className="flex items-center justify-center min-h-[600px] px-20 lg:px-32">
-            <AnimatePresence initial={false} custom={currentIndex} mode="sync">
+          <div className="flex items-center justify-center min-h-[600px] px-2 lg:px-32">
+            <AnimatePresence initial={false} custom={currentIndex} mode="wait">
               <motion.div
                 key={currentIndex}
                 custom={currentIndex}
