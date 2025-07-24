@@ -1,170 +1,132 @@
-# Heynori Web - Landing Page Moderna
+<!-- Logo principal -->
+<p align="center">
+  <img src="assets/images/heynori-logo.png" alt="Heynori Logo" width="220" />
+</p>
 
-Landing page moderna para Heynori, construida con React, TypeScript, Tailwind CSS y Vite.
+<h1 align="center" style="color:#2563eb; font-weight:800;">Heynori Web</h1>
 
-## 🚀 Características
+<p align="center">
+  <b>Landing page moderna para equipos productivos</b><br/>
+  <span style="color:#06b6d4;">React + TypeScript + Tailwind + i18n + Animaciones</span>
+</p>
 
-- **React 18** con TypeScript
-- **Vite** para desarrollo rápido
-- **Tailwind CSS** para estilos
-- **Framer Motion** para animaciones
-- **i18next** para internacionalización (ES/EN)
-- **Vitest** para testing
-- **Backend proxy** para formularios y emails
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18-blue?logo=react" />
+  <img src="https://img.shields.io/badge/TailwindCSS-3-06b6d4?logo=tailwindcss" />
+  <img src="https://img.shields.io/badge/Vite-4-purple?logo=vite" />
+  <img src="https://img.shields.io/badge/i18n-ES%20%7C%20EN-yellow?logo=googletranslate" />
+  <img src="https://img.shields.io/badge/CI-GitHub_Actions-blueviolet?logo=githubactions" />
+  <img src="https://img.shields.io/badge/Tests-Vitest-green?logo=vitest" />
+</p>
 
-## 📋 Prerrequisitos
+---
 
-- Node.js 18+ 
-- npm o yarn
+## ✨ Descripción
 
-## 🛠️ Instalación
+Landing page moderna y responsiva para <b>Heynori</b>, diseñada para captar leads B2B y mostrar el valor diferencial de la IA para equipos. Incluye:
+- Animaciones fluidas (Framer Motion)
+- Formulario de demo personalizado (con validación y backend proxy)
+- Internacionalización (ES/EN)
+- Accesibilidad y performance óptima
+- Estilo visual alineado a la marca Heynori
 
-1. **Clonar el repositorio**
-```bash
-git clone <repository-url>
-cd heynori-web
-```
+---
 
-2. **Instalar dependencias del frontend**
-```bash
-npm install
-```
+## 🚀 Demo
 
-3. **Instalar dependencias del servidor**
-```bash
-npm install --prefix ./server
-```
+<p align="center">
+  <img src="assets/images/logos/heynori-logo.png" alt="Demo Heynori" width="120" />
+</p>
 
-4. **Configurar variables de entorno**
-```bash
-cp env.example .env
-```
+> [🌐 Ver demo en producción](https://heynori.ai)
 
-Editar `.env` con tus credenciales:
-```env
-# Baserow Configuration
-BASEROW_TOKEN=your_baserow_token_here
-BASEROW_TABLE_ID=your_table_id_here
+---
 
-# Email Configuration (Gmail)
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASS=your_app_password_here
+## 🎨 Paleta de Marca
 
-# Server Configuration
-PORT=3001
-```
+- Azul principal: <code>#2563eb</code> (Tailwind: <b>primary-500</b>)
+- Cyan/acento: <code>#06b6d4</code> (Tailwind: <b>accent-500</b>)
+- Gradientes y fondos suaves
 
-## 🚀 Desarrollo
+---
 
-### Opción 1: Solo Frontend (sin backend)
-```bash
-npm run dev
-```
-
-### Opción 2: Frontend + Backend (recomendado)
-```bash
-npm run dev:full
-```
-
-Esto iniciará:
-- Frontend en `http://localhost:3000`
-- Backend en `http://localhost:3001`
-
-### Opción 3: Servicios por separado
-```bash
-# Terminal 1 - Frontend
-npm run dev
-
-# Terminal 2 - Backend
-npm run server:dev
-```
-
-## 🏗️ Build
+## 🛠️ Instalación Rápida
 
 ```bash
-npm run build
+# Clona el repositorio
+$ git clone <repository-url>
+$ cd heynori-web
+
+# Instala dependencias
+$ npm install
+
+# Arranca en modo desarrollo
+$ npm run dev
 ```
 
-## 🧪 Testing
+---
 
-```bash
-# Tests unitarios
-npm run test
-
-# Tests con UI
-npm run test:ui
-
-# Cobertura
-npm run test:coverage
-```
-
-## 📁 Estructura del Proyecto
+## 📦 Estructura del Proyecto
 
 ```
 heynori-web/
 ├── src/
 │   ├── components/
-│   │   ├── atoms/          # Componentes básicos
-│   │   ├── molecules/      # Componentes compuestos
-│   │   └── organisms/      # Componentes complejos
-│   ├── hooks/              # Custom hooks
-│   ├── utils/              # Utilidades
-│   ├── types/              # Tipos TypeScript
-│   ├── i18n/               # Traducciones
-│   └── styles/             # Estilos globales
-├── server.js               # Servidor proxy
-├── package.json            # Dependencias frontend
-├── package-server.json     # Dependencias servidor
-└── env.example             # Variables de entorno
+│   ├── hooks/
+│   ├── locales/
+│   ├── styles/
+│   └── utils/
+├── assets/images/logos/
+├── public/
+├── server.js
+├── package.json
+└── README.md
 ```
 
-## 🔧 Configuración del Backend
+---
 
-El servidor proxy maneja:
+## 🧪 Testing
 
-1. **Formularios de contacto** - Guarda en Baserow
-2. **Notificaciones por email** - Envía a hello@heynori.ai y email registrado
-3. **CORS** - Evita problemas de cross-origin
-4. **Validación** - Valida datos antes de procesar
+- **Unitarios y componentes:**
+  ```bash
+  npm run test
+  ```
+- **Cobertura:**
+  ```bash
+  npm run test:coverage
+  ```
+- **E2E/UI:** Cypress o Playwright (opcional)
 
-### Configuración de Email (Gmail)
+---
 
-1. Habilitar autenticación de 2 factores
-2. Generar contraseña de aplicación
-3. Usar esa contraseña en `EMAIL_PASS`
+## 🌐 Internacionalización
 
-## 🌐 Despliegue
+- Español e inglés (i18next)
+- Cambia idioma desde la UI
 
-### Frontend (Vercel/Netlify)
-```bash
-npm run build
-```
+---
 
-### Backend (Railway/Render/Vercel Functions)
-```bash
-npm run server
-```
+## 🔒 Seguridad y Buenas Prácticas
 
-## 📝 Notas de Desarrollo
+- Validación de formularios y emails corporativos
+- Gestión de secretos vía variables de entorno
+- Acceso a demo solo para empresas
+- Accesibilidad ARIA y performance
 
-- **Formularios**: Usan el backend proxy para evitar CORS
-- **Emails**: Se envían automáticamente a ambos destinatarios
-- **Baserow**: Almacena todos los contactos
-- **Validación**: Email corporativo y campos requeridos
+---
 
 ## 🤝 Contribución
 
-1. Fork el proyecto
-2. Crea una rama feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+1. Haz fork del repo
+2. Crea una rama feature (`git checkout -b feature/nueva-feature`)
+3. Commit y push (`git commit -m 'feat: nueva feature'`)
+4. Abre un Pull Request
 
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
+---
 
 ## 📞 Contacto
 
-- **Email**: hello@heynori.ai
-- **Website**: https://heynori.ai 
+- **Email:** hello@heynori.ai
+- **Web:** [https://heynori.ai](https://heynori.ai)
+
+<p align="center" style="color:#2563eb; font-weight:700;">heynori! — IA que realmente entiende cómo trabajas</p> 
