@@ -267,7 +267,7 @@ const Integrations: React.FC<BaseComponentProps> = ({
               }
             }}
           >
-            <span>See all 100+ integrations</span>
+            <span>{t('integrations.seeAll')}</span>
             <ArrowRight className="w-5 h-5" />
           </motion.button>
         </motion.div>

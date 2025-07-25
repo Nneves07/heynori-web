@@ -70,6 +70,7 @@
   },
   "benefits": {
     "title": "For teams that value their time",
+    "subtitle": "Automate, connect, and optimize your team's work with AI. Less repetitive tasks, more results.",
     "create": {
       "title": "More time to create",
       "desc": "Your team focuses on strategic work, not copying and pasting between tools"
@@ -88,13 +89,17 @@
     },
     "workflow": {
       "step1": "Detect patterns",
+      "step1Desc": "AI analyzes your team patterns",
       "step2": "Automate flows",
-      "step3": "Continuously optimize"
+      "step2Desc": "Automated workflows are created",
+      "step3": "Continuously optimize",
+      "step3Desc": "Continuous improvement cycle"
     }
   },
   "integrations": {
     "title": "Integrations",
-    "subtitle": "Connect with 100+ tools you already use. No complex setup required."
+    "subtitle": "Connect with 100+ tools you already use. No complex setup required.",
+    "seeAll": "See all 100+ integrations"
   },
   "contact": {
     "title": "Ready to transform your productivity?",
@@ -178,4 +183,4 @@
     "madeWith": "Made with",
     "forTeams": "for productive teams"
   }
-} 
+}

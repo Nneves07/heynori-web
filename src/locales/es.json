@@ -70,6 +70,7 @@
   },
   "benefits": {
     "title": "Para equipos que valoran su tiempo",
+    "subtitle": "Automatiza, conecta y optimiza el trabajo de tu equipo con IA. Menos tareas repetitivas, más resultados.",
     "create": {
       "title": "Más tiempo para crear",
       "desc": "Tu equipo se enfoca en trabajo estratégico, no en copiar y pegar entre herramientas"
@@ -88,13 +89,17 @@
     },
     "workflow": {
       "step1": "Detecta patrones",
+      "step1Desc": "La IA analiza los patrones de tu equipo",
       "step2": "Automatiza flujos",
-      "step3": "Optimiza continuamente"
+      "step2Desc": "Se crean flujos de trabajo automatizados",
+      "step3": "Optimiza continuamente",
+      "step3Desc": "Ciclo de mejora continua"
     }
   },
   "integrations": {
     "title": "Integraciones",
-    "subtitle": "Conéctate con más de 100 herramientas que ya usas. Sin configuración compleja."
+    "subtitle": "Conéctate con más de 100 herramientas que ya usas. Sin configuración compleja.",
+    "seeAll": "Ver las más de 100 integraciones"
   },
   "contact": {
     "title": "¿Listo para transformar tu productividad?",
@@ -178,4 +183,4 @@
     "madeWith": "Hecho con",
     "forTeams": "para equipos productivos"
   }
-} 
+}

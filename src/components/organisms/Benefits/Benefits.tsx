@@ -56,21 +56,21 @@ const Benefits: React.FC<BaseComponentProps> = ({
     {
       number: 1,
       title: t('benefits.workflow.step1'),
-      description: 'AI analyzes your team patterns',
+      description: t('benefits.workflow.step1Desc'),
       icon: Clock,
       gradient: 'from-red-500 to-pink-500'
     },
     {
       number: 2,
       title: t('benefits.workflow.step2'),
-      description: 'Automated workflows are created',
+      description: t('benefits.workflow.step2Desc'),
       icon: Zap,
       gradient: 'from-purple-500 to-indigo-500'
     },
     {
       number: 3,
       title: t('benefits.workflow.step3'),
-      description: 'Continuous improvement cycle',
+      description: t('benefits.workflow.step3Desc'),
       icon: TrendingUp,
       gradient: 'from-orange-500 to-yellow-500'
     }
@@ -172,7 +172,7 @@ const Benefits: React.FC<BaseComponentProps> = ({
             animate={hasIntersected ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Transform your team&apos;s productivity with intelligent automation
+            {t('benefits.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -313,4 +313,4 @@ const Benefits: React.FC<BaseComponentProps> = ({
   )
 }
 
-export default Benefits 
+export default Benefits
